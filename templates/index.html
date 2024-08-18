@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Yönetim Sistemi</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stok Yönetim Sistemi</h1>
+        
+        <!-- Malzeme Ekleme Formu -->
+        <section id="add-material" class="card">
+            <h2>Yeni Malzeme Ekle</h2>
+            <form id="material-form">
+                <label for="name">Malzeme Adı:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Açıklama:</label>
+                <input type="text" id="description" name="description">
+
+                <label for="initial_stock">Başlangıç Stoku:</label>
+                <input type="number" id="initial_stock" name="initial_stock" required>
+
+                <label for="unit">Birim:</label>
+                <input type="text" id="unit" name="unit" required>  <!-- Birim Alanı -->
+
+                <button type="submit">Ekle</button>
+            </form>
+        </section>
+
+        <!-- Malzemeleri Listeleme -->
+        <section id="materials-list" class="card">
+            <h2>Mevcut Malzemeler</h2>
+            <ul id="materials"></ul>
+        </section>
+
+        <!-- Stok Kayıt Ekleme Formu -->
+        <section id="add-stock" class="card">
+            <h2>Stok Kaydı Ekle</h2>
+            <form id="stock-form">
+                <label for="material-select">Malzeme Seç:</label>
+                <select id="material-select" required></select>
+
+                <label for="date">Tarih:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="produced">Üretilen Miktar:</label>
+                <input type="number" id="produced" name="produced" required>
+
+                <label for="sold">Satılan Miktar:</label>
+                <input type="number" id="sold" name="sold" required>
+
+                <button type="submit">Kaydet</button>
+            </form>
+        </section>
+
+        <!-- Stoktan Malzeme Çıkış Formu -->
+        <section id="withdraw-stock" class="card">
+            <h2>Stoktan Malzeme Çıkışı</h2>
+            <form id="withdraw-form">
+                <label for="withdraw-material-select">Malzeme Seç:</label>
+                <select id="withdraw-material-select" required></select>
+
+                <label for="quantity">Çıkış Miktarı:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <button type="submit">Çıkış Yap</button>
+            </form>
+        </section>
+
+        <!-- Güncel Stok Durumunu Görüntüleme -->
+        <section id="current-stock" class="card">
+            <h2>Güncel Stok Durumu</h2>
+            <form id="stock-check-form">
+                <label for="stock-material-select">Malzeme Seç:</label>
+                <select id="stock-material-select" required></select>
+
+                <button type="submit">Görüntüle</button>
+            </form>
+            <div id="stock-result"></div>
+        </section>
+
+        <!-- Tarih Aralığında Üretilen ve Satılan Malzemeleri Gösterme -->
+        <section id="report" class="card">
+            <h2>Tarih Aralığında Üretim ve Satış Raporu</h2>
+            <form id="report-form">
+                <label for="start_date">Başlangıç Tarihi:</label>
+                <input type="date" id="start_date" name="start_date" required>
+
+                <label for="end_date">Bitiş Tarihi:</label>
+                <input type="date" id="end_date" name="end_date" required>
+
+                <button type="submit">Raporu Göster</button>
+            </form>
+            <ul id="report-result"></ul>
+        </section>
+
+        <!-- Stoktaki Tüm Malzemeleri Listeleme -->
+        <section id="all-stock" class="card">
+            <h2>Stoktaki Tüm Malzemeler</h2>
+            <button id="list-all-stock">Stoktaki Tüm Malzemeleri Göster</button>
+            <ul id="all-stock-result"></ul>
+        </section>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
